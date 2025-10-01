@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maze Visualizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="controls">
+        <h1>Maze Visualizer</h1>
+        <p class="status" id="status">Press Generate Maze to begin.</p>
+        <label class="control">
+          <span>Generation Algorithm</span>
+          <select id="algorithm">
+            <option value="recursiveBacktracker">Recursive Backtracker</option>
+            <option value="growingTreeRightWall">Growing Tree (Right Wall)</option>
+            <option value="huntAndKill">Hunt and Kill</option>
+            <option value="sidewinderBidirectional">Sidewinder (Bidirectional)</option>
+            <option value="wilsons">Wilson's Algorithm</option>
+          </select>
+        </label>
+        <label class="control">
+          <span>Maze Width</span>
+          <input id="width" type="range" min="10" max="60" value="25" />
+          <span class="control-value" id="widthValue">25 cells</span>
+        </label>
+        <label class="control">
+          <span>Maze Height</span>
+          <input id="height" type="range" min="10" max="60" value="25" />
+          <span class="control-value" id="heightValue">25 cells</span>
+        </label>
+        <div class="buttons">
+          <button id="generateButton" class="primary">Generate Maze</button>
+          <button id="solveButton">Solve Maze</button>
+          <button id="saveButton">Save Puzzle</button>
+          <button id="addHintButton">Add Hint</button>
+          <button id="removeHintButton">Remove Hint</button>
+          <button id="resetButton">Reset</button>
+        </div>
+        <label class="control">
+          <span>Draw Mode</span>
+          <select id="drawMode">
+            <option value="walls">Show Walls</option>
+            <option value="visited">Show Visited</option>
+            <option value="heat">Show Heatmap</option>
+          </select>
+        </label>
+        <label class="control">
+          <span>Skill Tier</span>
+          <select id="skillTier">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="expert">Expert</option>
+          </select>
+        </label>
+        <label class="control">
+          <span>Difficulty</span>
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        <label class="control">
+          <span>Animation Speed</span>
+          <input id="speed" type="range" min="1" max="5" value="3" />
+          <span class="control-value" id="speedValue">Medium</span>
+        </label>
+      </section>
+      <section class="canvas-wrapper">
+        <canvas id="mazeCanvas" width="900" height="900"></canvas>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

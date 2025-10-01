@@ -1,0 +1,148 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0f1d;
+  --panel: rgba(18, 22, 36, 0.92);
+  --accent: #58a6ff;
+  --text: #f5f7ff;
+  --muted: #9da8c7;
+  --danger: #ff5c7c;
+  --success: #4ad395;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top, #1a2140, var(--bg));
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: min(1100px, 100%);
+}
+
+.controls {
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.controls h1 {
+  margin: 0 0 6px;
+  font-size: 1.7rem;
+}
+
+.status {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.control input[type='range'],
+.control select {
+  appearance: none;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(9, 12, 21, 0.85);
+  color: var(--text);
+}
+
+.control-value {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+button {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-size: 0.96rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+button.primary {
+  background: linear-gradient(135deg, var(--accent), #9b6bff);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+button.active {
+  background: rgba(255, 92, 124, 0.25);
+  box-shadow: 0 0 0 2px rgba(255, 92, 124, 0.25) inset;
+}
+
+.canvas-wrapper {
+  background: rgba(12, 16, 27, 0.85);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+canvas {
+  width: min(90vw, 700px);
+  height: min(90vw, 700px);
+  max-width: 900px;
+  max-height: 900px;
+  background: #05080f;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 900px) {
+  .layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .controls {
+    width: 320px;
+  }
+
+  .canvas-wrapper {
+    flex: 1;
+  }
+}
